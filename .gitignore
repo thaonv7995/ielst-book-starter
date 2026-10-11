@@ -28,5 +28,8 @@ Thumbs.db
 # PM2 local files
 .pm2/
 
-# Temporary test/scratch files
+# Temporary test/scratch and archive files
 scratch_*
+*.tar.gz
+*.tar.gz.sha256
+*.zip
