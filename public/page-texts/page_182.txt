@@ -1,0 +1,48 @@
+Reading
+
+Dawn of the robots
+
+They're already here — driving cars, vacuuming carpets and feeding hospital
+patients. They may not be walking, talking, human-like sentient beings, but they are
+clever... and a little creepy.
+
+At first sight it looked like a typical suburban road accident. A Land Rover
+approached a Chevy Tahoe estate car that had stopped at a kerb; the Land
+Rover pulled out and tried to pass the Tahoe just as it started off again.
+There was a crack of fenders and the sound of paintwork being scraped, the
+kind of minor mishap that occurs on roads thousands of times every day.
+Normally drivers get out, gesticulate, exchange insurance details and then
+drive off. But not on this occasion. No one got out of the cars for the simple
+reason that they had no humans inside them; the Tahoe and Land Rover
+were being controlled by computers competing in November’s DARPA (the
+U.S. Defence Advanced Research Projects Agency) Urban Challenge.
+
+The idea that machines could perform to such standards is startling.
+Driving is a complex task that takes humans a long time to perfect. Yet here,
+each car had its on-board computer loaded with a digital map and route
+plans, and was instructed to negotiate busy roads; differentiate between
+pedestrians and stationary objects; determine whether other vehicles were
+parked or moving off; and handle various parking manoeuvres, which
+robots turn out to be unexpectedly adept at. Even more striking was the
+fact that the collision between the robot Land Rover, built by researchers
+at the Massachusetts Institute of Technology, and the Tahoe, fitted out by
+Cornell University Artificial Intelligence (Al) experts, was the only scrape
+in the entire competition. Yet only three years earlier, at DARPA’s previous
+driverless car race, every robot competitor — directed to navigate across a
+stretch of open desert — either crashed or seized up before getting near the
+finishing line.
+
+It is a remarkable transition that has clear implications for the car of the
+future. More importantly, it demonstrates how robotics sciences and
+Artificial Intelligence have progressed in the past few years — a point
+stressed by Bill Gates, the Microsoft boss who is a convert to these causes.
+‘The robotics industry is developing in much the same way the computer
+business did 30 years ago,’ he argues. As he points out, electronics
+companies make toys that mimic pets and children with increasing
+sophistication. ‘I can envision a future in which robotic devices will become
+a nearly ubiquitous part of our day-to-day lives,’ says Gates. ‘We may be on
+the verge of a new era, when the PC will get up off the desktop and allow
+us to see, hear, touch and manipulate objects in places where we are not
+physically present.’
+
+181

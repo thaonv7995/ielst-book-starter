@@ -1,0 +1,136 @@
+1.3
+
+Conversation 1
+1 travel agent
+
+2. customer
+
+Conversation 2
+
+1 both people give the answer
+2 hotel receptionist
+Conversation 3
+
+1 interviewer
+
+2. job applicant
+
+2 Identifying function
+2.1
+
+1 What about getting her a new bike?
+
+That's right. We arrive on 22nd July.
+
+That sounds great. Let’s do that
+
+I don’t think I'd enjoy that one.
+
+You said you'd prefer to have the party outside, is that
+
+right?
+
+Actually, it’s just gone up to $250.
+
+7 Now, what about accommodation? Where would you
+like to stay?
+
+wan
+
+a
+
+2.2
+
+1D 256 3A 4C 56 6B 7F
+2.3
+
+1A 2C 3B 4C
+
+2.4
+
+al el i 2 m |
+b2 f 2 j 2 nil
+cl gl k 2 02
+d 2 h2 12 pl
+3 Understanding categories
+
+3.1
+
+accommodation tent cabin flat
+transport tram ferry coach
+entertainment theatre cinema concert
+food picnic barbecue buffet
+drink juice lemonade coffee
+3.2
+
+250 computer/two hundred and fifty computer
+
+Answer key @
+
+3.3
+
+* two hundred and fivety computer X (the number is spelt
+incorrectly)
+
+* 250 computer ¥
+
+* two hundred and fifty computers X (there should be no ’s’
+on computer — it’s an adjective here)
+
+* over 250 computer X (this is two words not one; over is not
+necessary because more than is already in the sentence.)
+
+* 250 computer experts X (this is two words not one; experts is
+not necessary because it is already in the sentence)
+
+* over 250 experts X (this is two words not one; the words
+over and experts are not necessary)
+
+* two hundred and fifty computer /
+
+* 250¥
+
+3 Recognising paraphrase
+1 Identifying distractors
+
+1.1
+
+1 18th July 3 recycling
+
+2 Wednesday 4 funds
+
+12
+
+The distractors are:
+
+1 19th, 20th, 21st 3 environment, pollution
+
+2 Tuesday, Thursday, Friday 4 equipment, volunteers
+
+2 Recognising paraphrase
+
+2.1
+1d 2e 3a 4f Sh 6b 7c BE
+2.2
+1A 2A 3C 4B
+2.3
+1A | aplace to stay accommodation | ¥
+/potel
+B | their airfares flights They'll do it in
+the morning
+C | carhire transport They'll borrow
+a car.
+2A | improve the plant trees v
+shade
+B | remove plants take out They don't
+want to do this.
+C | add a water pond They already
+feature have one.
+3A | do more research | (find) They have
+information plenty.
+B | make some cuts | reduce any of it | They don't want
+to do this at all
+| addsome visual | include graphics | ¥
+effects
+
+367

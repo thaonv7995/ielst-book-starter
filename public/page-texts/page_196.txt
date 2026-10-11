@@ -1,0 +1,52 @@
+Reading
+
+READING PASSAGE 1
+
+You should spend about 20 minutes on Questions 1-13, which are based on Reading
+Passage 1 below.
+
+SECRETS OF THE SWARM
+
+Insects, birds and fish tend to be the creatures that humans feel furthest from. Unlike many
+mammals they do not engage in human-like behaviour. The way they swarm or flock together
+does not usually get good press coverage either: marching like worker ants might be a
+common simile for city commuters, but it’s a damning, not positive, image. Yet a new school
+of scientific theory suggests that these swarms might have a lot to teach us.
+
+American author Peter Miller explains, ‘I used to think that individual ants knew where they
+were going, and what they were supposed to do when they got there. But Deborah Gordon, a
+biologist at Stanford University, showed me that nothing an ant does makes any sense except
+in terms of the whole colony. Which makes you wonder if, as individuals, we don’t serve a
+similar function for the companies where we work or the communities where we live.’ Ants
+are not intelligent by themselves. Yet as a colony, they make wise decisions. And as Gordon
+discovered during her research, there’s no one ant making decisions or giving orders.
+
+Take food collecting, for example. No ant decides, ‘There’s lots of food around today; lots
+of ants should go out to collect it.’ Instead, some forager ants go out, and as soon as they
+find food, they pick it up and come back to the nest. At the entrance, they brush past reserve
+foragers, sending a “go out’ signal. The faster the foragers come back, the more food there
+is and the faster other foragers go out, until gradually the amount of food being brought
+back diminishes. An organic calculation has been made to answer the question, ‘How many
+foragers does the colony need today?’ And if something goes wrong —a hungry lizard
+prowling around for an ant snack, for instance — then a rush of ants returning without food
+sends waiting reserves a ‘Don’t go out’ signal.
+
+But could such decentralised control work in a human organisation? Miller visited a Texas
+gas company that has successfully applied formulas based on ant colony behaviour to
+‘optimise its factories and route its trucks’. He explains, ‘If ant colonies had worked out a
+reliable way to identify the best routes between their nest and food sources, the company
+managers figured, why not take advantage of that knowledge?’ So they came up with a
+computer model, based on the self-organising principles of an ant colony. Data is fed into
+the model about deliveries needing to be made the next day, as well as things like weather
+conditions, and it produces a simulation determining the best route for the delivery lorries
+to take.
+
+Miller explains that he first really understood the impact that swarm behaviour could
+
+have on humans when he read a study of honeybees by Tom Seeley, a biologist at Cornell
+University. The honeybees choose as a group which new nest to move to. First, scouts fly off
+to investigate multiple sites. When they return they do a ‘waggle dance’ for their spot, and
+other scouts will then fly off and investigate it. Many bees go out, but none tries to compare
+all sites. Each reports back on just one. The more they liked their nest, the more vigorous and
+
+195

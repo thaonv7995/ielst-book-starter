@@ -1,0 +1,37 @@
+Reading
+
+Given the difficulty people have in noticing changes to visual stimuli, one may wonder
+what would happen if these changes concerned the decisions people make. To examine
+choice blindness, Hall and colleagues (2010) invited supermarket customers to sample
+two different kinds of jams and teas. After participants had tasted or smelled both
+samples, they indicated which one they preferred. Subsequently, they were purportedly
+given another sample of their preferred choice. On half of the trials, however, these
+were samples of the non-chosen jam or tea. As expected, only about one-third of the
+participants detected this manipulation. Based on these findings, Hall and colleagues
+proposed that choice blindness is a phenomenon that occurs not only for choices
+involving visual material, but also for choices involving gustatory and olfactory
+information.
+
+Recently, the phenomenon has also been replicated for choices involving auditory stimuli
+(Sauerland, Sagana, & Otgaar, 2012). Specifically, participants had to listen to three pairs
+of voices and decide for each pair which voice they found more sympathetic or more
+criminal. The voice was then presented again; however, the outcome was manipulated
+for the second voice pair and participants were presented with the non-chosen voice.
+Replicating the findings by Hall and colleagues, only 29% of the participants detected this
+change.
+
+Merckelbach, Jelicic, and Pieters (2011) investigated choice blindness for intensity ratings
+of one’s own psychological symptoms. Their participants had to rate the frequency with
+which they experienced 90 common symptoms (e.g. anxiety, lack of concentration, stress,
+headaches etc.) on a 5-point scale. Prior to a follow-up interview, the researchers inflated
+ratings for two symptoms by two points. For example, when participants had rated their
+feelings of shyness, as 2 (i.e. occasionally), it was changed to 4 (i.e. all the time). This time,
+more than half (57%) of the 28 participants were blind to the symptom rating escalation
+and accepted it as their own symptom intensity rating. This demonstrates that blindness is
+not limited to recent preference selections, but can also occur for intensity and frequency.
+
+Together, these studies suggest that choice blindness can occur in a wide variety of
+situations and can have serious implications for medical and judicial outcomes. Future
+research is needed to determine how, in those situations, choice blindness can be avoided.
+
+185

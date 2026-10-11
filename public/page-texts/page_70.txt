@@ -1,0 +1,48 @@
+In a finding that parallels the evolution of genes, researchers have shown that the
+more frequently a word is used, the less likely it is to change over long periods of
+time.
+
+The question of why some words evolve rapidly through time while others are preserved - often
+with the same meaning in multiple languages - has long plagued linguists. Two independent
+teams of researchers have tackled this question from different angles, each arriving at a
+remarkably similar conclusion.
+
+“The frequency with which specific words are used in everyday language exerts a general and
+law-like influence on their rates of evolution,” writes Mark Pagel, author of one of two studies
+published this week.
+
+Anyone who has tried to learn English will have been struck by its excess of stubbornly
+irregular verbs, which render grammatical rules unreliable. The past tense of regular verbs is
+formed by adding the suffix ‘-ed’, but this luxury is not afforded to their irregular kin. Over
+time, however, some irregular verbs ‘regularise’. For instance, the past tense of ‘help’ used to be
+‘holp’, but now it is ‘helped’.
+
+Mathematician Erez Lieberman, from Harvard University in Massachusetts, US, performed a
+quantitative study of the rate at which English verbs such as ‘help’ have become more regular
+with time. Of the list of 177 irregular verbs they took from Old English, only 98 are still irregular
+today. Amazingly, the changes they observed obey a very precise mathematical description: the
+half-life of an irregular verb is proportional to the square root of its frequency. In other words,
+they found that the more an irregular verb is used, the longer it will remain irregular.
+
+A separate group of academics, led by evolutionary biologist Mark Pagel from the University of
+Reading, in the UK, used a statistical modelling technique to study the evolution of words from
+87 different Indo-European languages.
+
+“Throughout its 8,000-year history, all Indo-European-language speakers have used a related
+sound to communicate the idea of ‘two’ objects - duo, due, deux, dos, etc.” Pagel commented.
+“But,” he adds, ‘’there are many different and unrelated sounds for the idea of, for example, a
+bird - uccello, oiseau, pouli, pajaro, vogel, etc.”
+
+Before now, however, nobody had proposed a mechanism for why some words should evolve
+
+more quickly than others. According to Pagel, “our research helps us to understand why we can
+still understand bits of Chaucer [a medieval poet)” and points out that this likely explains “why
+we can instinctively recognise words in other Indo-European languages, just from their sounds”.
+
+Psychologist and language expert Russell Gray, from the University of Auckland in New
+Zealand, was impressed by both findings.
+
+“Despite all the vagaries and contingencies of human history, it seems that there are remarkable
+regularities in the processes of language change,” he commented.
+
+69

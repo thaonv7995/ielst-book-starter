@@ -1,0 +1,35 @@
+3.11
+
+Read the passage and underline the words that are already
+marked on the diagram.
+
+The power of water
+
+Most hydropower plants rely on a dam that holds back water, creating a large reservoir
+behind it. Often, this reservoir is used as a recreational lake and is also known as the
+intake. Gates on the dam open and gravity pulls the water through the penstock, a line of
+pipe that leads to the turbine. Water builds up pressure as it flows through this pipe. The
+water strikes and turns the large blades of a turbine, which is attached to a generator
+above it by way of a shaft. As the turbine blades turn, so do a series of magnets inside
+the generator producing alternating current (AC) by moving electrons. The transformer,
+located inside the powerhouse, takes the AC and converts it to higher-voltage current.
+
+3.12
+3.13
+
+1
+
+54
+
+Answer Questions 1-5 on the diagram.
+
+Replace the underlined words below with appropriate
+paraphrases from the text.
+
+The dam helps contain the water and produces a reservoir.
+The water moves through a pipe and increases in pressure.
+The water rotates the blades of a turbine that is connected to a
+generator.
+
+The transformer changes the AC current into a more powerful
+one.
