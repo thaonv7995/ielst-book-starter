@@ -2,6 +2,15 @@ export type PageLayout = 'single' | 'double';
 export type FitMode = 'height' | 'width';
 export type ViewMode = 'single' | 'double' | 'fit-width';
 
+export interface BookReadingState {
+  currentPage: number;
+  pageLayout: PageLayout;
+  fitMode: FitMode;
+  zoomLevel: number;
+  lastReadAt: number;
+  highestPageReached: number;
+}
+
 export interface TocItem {
   id: string;
   title: string;

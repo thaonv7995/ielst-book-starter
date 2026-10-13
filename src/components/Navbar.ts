@@ -1,7 +1,11 @@
 import { TOTAL_PAGES } from '../data/book-structure';
 import { PageLayout, FitMode } from '../types';
 
-export interface NavbarEvents {
+export interface NavbarOptions {
+  initialPage?: number;
+  initialLayout?: PageLayout;
+  initialFitMode?: FitMode;
+  initialZoom?: number;
   onPrevPage: () => void;
   onNextPage: () => void;
   onJumpPage: (page: number) => void;
@@ -13,15 +17,19 @@ export interface NavbarEvents {
 
 export class Navbar {
   private container: HTMLElement;
-  private events: NavbarEvents;
+  private events: NavbarOptions;
   private currentPage: number = 1;
   private pageLayout: PageLayout = 'single';
   private fitMode: FitMode = 'height';
   private zoom: number = 1.0;
 
-  constructor(container: HTMLElement, events: NavbarEvents) {
+  constructor(container: HTMLElement, options: NavbarOptions) {
     this.container = container;
-    this.events = events;
+    this.events = options;
+    if (options.initialPage) this.currentPage = options.initialPage;
+    if (options.initialLayout) this.pageLayout = options.initialLayout;
+    if (options.initialFitMode) this.fitMode = options.initialFitMode;
+    if (typeof options.initialZoom === 'number') this.zoom = options.initialZoom;
 
     this.render();
   }
@@ -30,6 +38,24 @@ export class Navbar {
     this.currentPage = page;
     const input = this.container.querySelector('#nav-page-input') as HTMLInputElement;
     if (input) input.value = String(page);
+
+    const progressPercent = Math.min(100, Math.max(0, Math.round((page / TOTAL_PAGES) * 100)));
+    const badge = this.container.querySelector('#nav-progress-badge');
+    if (badge) {
+      badge.textContent = `${progressPercent}%`;
+      badge.setAttribute('title', `Tiến độ đọc: Trang ${page}/${TOTAL_PAGES} (${progressPercent}%)`);
+    }
+
+    const progressBar = this.container.querySelector('#nav-progress-bar') as HTMLElement;
+    if (progressBar) {
+      const fillPercent = ((page / TOTAL_PAGES) * 100).toFixed(1);
+      progressBar.style.width = `${fillPercent}%`;
+    }
+
+    const progressTrack = this.container.querySelector('#nav-progress-track') as HTMLElement;
+    if (progressTrack) {
+      progressTrack.title = `Tiến độ đọc: Trang ${page}/${TOTAL_PAGES} (${progressPercent}%)`;
+    }
   }
 
   public setZoom(zoom: number): void {
@@ -55,8 +81,16 @@ export class Navbar {
   }
 
   private render(): void {
+    const progressPercent = Math.min(100, Math.max(0, Math.round((this.currentPage / TOTAL_PAGES) * 100)));
+    const fillPercent = ((this.currentPage / TOTAL_PAGES) * 100).toFixed(1);
+
     this.container.innerHTML = `
       <header class="app-navbar">
+        <!-- Progress track along bottom border of navbar -->
+        <div class="nav-progress-track" id="nav-progress-track" title="Tiến độ đọc: Trang ${this.currentPage}/${TOTAL_PAGES} (${progressPercent}%)">
+          <div class="nav-progress-bar" id="nav-progress-bar" style="width: ${fillPercent}%"></div>
+        </div>
+
         <!-- Left: TOC toggle & Title -->
         <div class="nav-left">
           <button class="nav-btn nav-btn-toc" id="btn-nav-toc" title="Mục lục sách (TOC)">
@@ -72,7 +106,7 @@ export class Navbar {
           </div>
         </div>
 
-        <!-- Center: Minimal Page Switcher -->
+        <!-- Center: Minimal Page Switcher with Progress Badge -->
         <div class="nav-center">
           <div class="page-switcher-pill">
             <button class="nav-page-arrow" id="nav-btn-prev" title="Trang trước (←)">
@@ -84,6 +118,7 @@ export class Navbar {
               <input type="number" id="nav-page-input" class="page-number-input" min="1" max="${TOTAL_PAGES}" value="${this.currentPage}" />
               <span class="label-slash">/</span>
               <span class="label-total">${TOTAL_PAGES}</span>
+              <span class="nav-progress-badge" id="nav-progress-badge" title="Tiến độ đọc: ${progressPercent}%">${progressPercent}%</span>
             </div>
 
             <button class="nav-page-arrow" id="nav-btn-next" title="Trang sau (→)">
@@ -96,20 +131,20 @@ export class Navbar {
         <div class="nav-right">
           <!-- 1 Page vs 2 Page Toggle -->
           <div class="nav-segmented" title="Chế độ hiển thị trang">
-            <button class="seg-item active" id="btn-layout-single" title="Xem 1 trang">1 Trang</button>
-            <button class="seg-item" id="btn-layout-double" title="Xem 2 trang (sách mở)">2 Trang</button>
+            <button class="seg-item ${this.pageLayout === 'single' ? 'active' : ''}" id="btn-layout-single" title="Xem 1 trang">1 Trang</button>
+            <button class="seg-item ${this.pageLayout === 'double' ? 'active' : ''}" id="btn-layout-double" title="Xem 2 trang (sách mở)">2 Trang</button>
           </div>
 
           <!-- Fit Height vs Fit Width Toggle -->
           <div class="nav-segmented" title="Tỷ lệ co giãn trang">
-            <button class="seg-item active" id="btn-fit-height" title="Vừa chiều cao (không cuộn chuột)">↕ Vừa cao</button>
-            <button class="seg-item" id="btn-fit-width" title="Vừa chiều rộng (cuộn dọc phóng to)">↔ Vừa rộng</button>
+            <button class="seg-item ${this.fitMode === 'height' ? 'active' : ''}" id="btn-fit-height" title="Vừa chiều cao (không cuộn chuột)">↕ Vừa cao</button>
+            <button class="seg-item ${this.fitMode === 'width' ? 'active' : ''}" id="btn-fit-width" title="Vừa chiều rộng (cuộn dọc phóng to)">↔ Vừa rộng</button>
           </div>
 
           <!-- Zoom control -->
           <div class="nav-zoom-pill">
             <button class="btn-zoom" id="btn-zoom-out" title="Thu nhỏ">−</button>
-            <span class="zoom-value" id="nav-zoom-val">100%</span>
+            <span class="zoom-value" id="nav-zoom-val">${Math.round(this.zoom * 100)}%</span>
             <button class="btn-zoom" id="btn-zoom-in" title="Phóng to">+</button>
           </div>
 

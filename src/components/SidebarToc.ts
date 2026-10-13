@@ -1,10 +1,17 @@
 import { BOOK_TOC, AUDIO_TRACKS, TOTAL_PAGES } from '../data/book-structure';
 import { Bookmark, PageNote } from '../types';
+import {
+  loadBookState,
+  calculateProgressPercent,
+  formatLastReadTime,
+  resetBookProgress,
+} from '../services/storage-service';
 
 export interface SidebarTocEvents {
   onSelectPage: (page: number) => void;
   onPlayAudioTrack?: (trackId: number) => void;
   onToggleCollapse?: (isOpen: boolean) => void;
+  onResetProgress?: () => void;
 }
 
 export class SidebarToc {
@@ -26,7 +33,26 @@ export class SidebarToc {
 
   public setPage(page: number): void {
     this.currentPage = page;
+    this.updateProgressCard();
     this.highlightCurrentItem();
+  }
+
+  public updateProgressCard(): void {
+    const bookState = loadBookState();
+    const pct = calculateProgressPercent(this.currentPage);
+    const fillPercent = ((this.currentPage / TOTAL_PAGES) * 100).toFixed(1);
+
+    const pctEl = this.container.querySelector('#sidebar-progress-pct');
+    if (pctEl) pctEl.textContent = `${pct}%`;
+
+    const fillEl = this.container.querySelector('#sidebar-progress-fill') as HTMLElement;
+    if (fillEl) fillEl.style.width = `${fillPercent}%`;
+
+    const detailEl = this.container.querySelector('#sidebar-progress-detail');
+    if (detailEl) detailEl.textContent = `Trang ${this.currentPage} / ${TOTAL_PAGES}`;
+
+    const highestEl = this.container.querySelector('#sidebar-progress-highest');
+    if (highestEl) highestEl.textContent = `Xa nhất: p.${bookState.highestPageReached || this.currentPage}`;
   }
 
   public open(): void {
@@ -101,6 +127,10 @@ export class SidebarToc {
   }
 
   private render(): void {
+    const bookState = loadBookState();
+    const pct = calculateProgressPercent(this.currentPage);
+    const fillPercent = ((this.currentPage / TOTAL_PAGES) * 100).toFixed(1);
+
     this.container.innerHTML = `
       <div class="sidebar-root ${this.isOpen ? '' : 'closed'}">
         <div class="sidebar-header">
@@ -111,10 +141,28 @@ export class SidebarToc {
           <button class="btn-sidebar-toggle" id="btn-sidebar-close" title="Đóng mục lục">◀</button>
         </div>
 
+        <!-- Reading Progress Summary Card -->
+        <div class="sidebar-progress-card" id="sidebar-progress-card">
+          <div class="progress-card-top">
+            <div class="progress-title-col">
+              <span class="progress-icon">📖</span>
+              <span class="progress-text-label">Tiến độ đọc sách</span>
+            </div>
+            <span class="progress-percent" id="sidebar-progress-pct">${pct}%</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" id="sidebar-progress-fill" style="width: ${fillPercent}%"></div>
+          </div>
+          <div class="progress-card-footer">
+            <span class="progress-detail" id="sidebar-progress-detail">Trang ${this.currentPage} / ${TOTAL_PAGES}</span>
+            <span class="progress-highest" id="sidebar-progress-highest">Xa nhất: p.${bookState.highestPageReached || this.currentPage}</span>
+          </div>
+        </div>
+
         <div class="sidebar-tabs">
           <button class="tab-btn active" data-tab="toc">📚 Mục Lục</button>
           <button class="tab-btn" data-tab="audio">🎧 Audio (70)</button>
-          <button class="tab-btn" data-tab="notes">⭐ Ghi Chú</button>
+          <button class="tab-btn" data-tab="notes">⭐ Ghi Chú & Tiến Độ</button>
         </div>
 
         <div class="sidebar-search-box">
@@ -167,6 +215,8 @@ export class SidebarToc {
 
   private renderToc(el: HTMLElement, searchQuery: string): void {
     const q = searchQuery.toLowerCase().trim();
+    const bookState = loadBookState();
+    const highest = bookState.highestPageReached || 1;
 
     let html = '<div class="toc-tree">';
     for (const group of BOOK_TOC) {
@@ -187,10 +237,11 @@ export class SidebarToc {
 
       const itemsToRender = q && filteredChildren.length > 0 ? filteredChildren : group.children || [];
       for (const item of itemsToRender) {
+        const isReached = item.page <= highest;
         html += `
-          <div class="toc-item-row" data-page="${item.page}">
+          <div class="toc-item-row ${isReached ? 'reached' : ''}" data-page="${item.page}">
             <div class="toc-item-title-col">
-              <span class="item-bullet">•</span>
+              <span class="item-bullet ${isReached ? 'bullet-reached' : ''}">${isReached ? '✓' : '•'}</span>
               <span class="item-title">${item.title}</span>
             </div>
             <div class="toc-item-badge-col">
@@ -250,9 +301,39 @@ export class SidebarToc {
   private renderNotesTab(el: HTMLElement): void {
     const curBookmarked = this.bookmarks.some((b) => b.page === this.currentPage);
     const curNote = this.notes.find((n) => n.page === this.currentPage)?.text || '';
+    const bookState = loadBookState();
+    const pct = calculateProgressPercent(this.currentPage);
 
     el.innerHTML = `
       <div class="notes-panel">
+        <!-- Reading Progress & State Overview -->
+        <div class="reading-stats-card">
+          <div class="stats-card-header">
+            <h4>📊 Tiến Độ & Trạng Thái Đọc</h4>
+          </div>
+          <div class="stats-grid">
+            <div class="stat-box">
+              <span class="stat-label">Tiến độ</span>
+              <span class="stat-val text-accent">${pct}%</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-label">Trang hiện tại</span>
+              <span class="stat-val">Trang ${this.currentPage}</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-label">Trang xa nhất</span>
+              <span class="stat-val">Trang ${bookState.highestPageReached || this.currentPage}</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-label">Đọc lần cuối</span>
+              <span class="stat-val text-dim">${formatLastReadTime(bookState.lastReadAt)}</span>
+            </div>
+          </div>
+          <button class="btn-reset-progress-state" id="btn-reset-progress-state" title="Đặt lại tiến độ đọc về Trang 1">
+            🔄 Đặt lại tiến độ đọc về Trang 1
+          </button>
+        </div>
+
         <div class="current-page-note-card">
           <div class="note-card-header">
             <h4>Ghi chú cho Trang ${this.currentPage}</h4>
@@ -287,6 +368,14 @@ export class SidebarToc {
     `;
 
     // Wire actions
+    el.querySelector('#btn-reset-progress-state')?.addEventListener('click', () => {
+      if (confirm('Bạn có chắc chắn muốn đặt lại tiến độ đọc về Trang 1 không?')) {
+        resetBookProgress();
+        this.events.onResetProgress?.();
+        this.events.onSelectPage(1);
+      }
+    });
+
     el.querySelector('#btn-toggle-cur-bookmark')?.addEventListener('click', () => {
       if (curBookmarked) {
         this.removeBookmark(this.currentPage);

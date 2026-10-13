@@ -7,6 +7,12 @@ export interface BookViewerEvents {
   onAskAiForPage?: (prompt: string) => void;
 }
 
+export interface BookViewerInitOptions {
+  initialLayout?: PageLayout;
+  initialFitMode?: FitMode;
+  initialZoom?: number;
+}
+
 export class BookViewer {
   private container: HTMLElement;
   private currentPage: number = 1;
@@ -17,10 +23,18 @@ export class BookViewer {
   private previousExercisePage: number | null = null;
   private preloadedPages = new Set<number>();
 
-  constructor(container: HTMLElement, initialPage: number = 1, events: BookViewerEvents) {
+  constructor(
+    container: HTMLElement,
+    initialPage: number = 1,
+    events: BookViewerEvents,
+    options?: BookViewerInitOptions
+  ) {
     this.container = container;
     this.currentPage = Math.max(1, Math.min(TOTAL_PAGES, initialPage));
     this.events = events;
+    if (options?.initialLayout) this.pageLayout = options.initialLayout;
+    if (options?.initialFitMode) this.fitMode = options.initialFitMode;
+    if (typeof options?.initialZoom === 'number') this.zoomLevel = options.initialZoom;
 
     this.render();
     this.setupKeyboard();
